@@ -12,6 +12,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- hero area -->
@@ -43,7 +44,7 @@
                 <div class="col-auto">
                   <input type="text" id="inputIncome" class="form-control" />
                 </div>
-                <span id="passwordHelpInline" class="form-text text-danger">
+                <span id="inputIncomeError" class="form-text text-danger">
                   Must be 8-20 characters long.
                 </span>
               </div>
@@ -60,44 +61,53 @@
                 <div class="col-auto">
                   <input type="text" id="inputFood" class="form-control" />
                 </div>
-                <span id="passwordHelpInline" class="form-text text-danger">
+                <span id="inputFoodError" class="form-text text-danger">
                   Must be 8-20 characters long.
                 </span>
               </div>
               <!-- for Rents -->
               <div
-                class="row g-3 align-items-center justify-content-center text-center"
+                class="row g-3 align-items-center justify-content-center text-center my-2"
               >
                 <div class="col-auto">
                   <label for="inputClothes" class="col-form-label">Rent</label>
                 </div>
                 <div class="col-auto">
-                  <input type="text" id="inputClothes" class="form-control" />
+                  <input type="text" id="inputRent" class="form-control" />
                 </div>
-                <span id="passwordHelpInline" class="form-text text-danger">
+                <span id="inputRentError" class="form-text text-danger">
                   Must be 8-20 characters long.
                 </span>
               </div>
               <!-- for Clothes -->
               <div
-                class="row g-3 align-items-center justify-content-center text-center"
+                class="row g-3 align-items-center justify-content-center text-center my-2"
               >
                 <div class="col-auto">
-                  <label for="inputRent" class="col-form-label">Clothes</label>
+                  <label for="inputClothes" class="col-form-label"
+                    >Clothes</label
+                  >
                 </div>
                 <div class="col-auto">
-                  <input type="text" id="inputRent" class="form-control" />
+                  <input type="text" id="inputClothes" class="form-control" />
                 </div>
-                <span id="passwordHelpInline" class="form-text text-danger">
+                <span id="inputClothesError" class="form-text text-danger">
                   Must be 8-20 characters long.
                 </span>
+              </div>
+              <div class="text-center">
+                <button type="button" class="btn btn-primary" id="calculate">
+                  Calculate
+                </button>
               </div>
               <!-- input field ends for expenses-->
             </div>
             <!-- expense total and Balance -->
             <div class="text-center my-3">
-              <h4 class="fz-4 text">Total Expenses: <span>00</span></h4>
-              <h4 class="fz-4 text">Balance: <span>00</span></h4>
+              <h4 class="fz-4 text">
+                Total Expenses: <span id="totalExpenses">00</span>
+              </h4>
+              <h4 class="fz-4 text">Balance: <span id="balance">00</span></h4>
             </div>
             <!-- input field for saving and remaining balance -->
 
@@ -105,24 +115,30 @@
               class="row g-3 align-items-center justify-content-center text-center my-3"
             >
               <div class="col-auto">
-                <label for="inputRent" class="col-form-label">Save</label>
+                <label for="inputSave" class="col-form-label">Save</label>
               </div>
               <div class="col-auto">
-                <input type="text" id="inputRent" class="form-control" />
+                <input type="text" id="inputSave" class="form-control" />
               </div>
               <div class="col-auto">
                 <span class="text-center fw-bold">%</span>
               </div>
               <div class="col-auto">
-                <button type="button" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-primary" id="save">
+                  Save
+                </button>
               </div>
-              <span id="passwordHelpInline" class="form-text">
+              <span id="inputSaveError" class="form-text text-danger">
                 Must be 8-20 characters long.
               </span>
             </div>
             <div class="text-center my-3">
-              <h4 class="fz-4 text">Saving Amount: <span>00</span></h4>
-              <h4 class="fz-4 text">Remaining Balance: <span>00</span></h4>
+              <h4 class="fz-4 text" id="savingAmount">
+                Saving Amount: <span>00</span>
+              </h4>
+              <h4 class="fz-4 text" id="remainingBalance">
+                Remaining Balance: <span>00</span>
+              </h4>
             </div>
           </div>
         </div>
