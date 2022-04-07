@@ -10,21 +10,13 @@ const balance = document.getElementById('balance');
 const savingAmount = document.getElementById('savingAmount');
 const remainingBalance = document.getElementById('remainingBalance');
 
-// error 
-const inputIncomeError = document.getElementById('inputIncomeError');
-const inputFoodError = document.getElementById('inputFoodError');
-const inputClothesError = document.getElementById('inputClothesError');
-const inputRentError = document.getElementById('inputRentError');
-const inputSaveError = document.getElementById('inputSaveError');
-const calculateError = document.getElementById('calculateError');
-const savingsError = document.getElementById('savingsError');
-
-
 // btns
 const calculate = document.getElementById('calculate');
 const save = document.getElementById('save');
 
+//error message
 const errorMessage = 'Can not be negative numbers or blank field or letters';
+
 // error message function
 const showError = function (id, text) {
     const inputError = document.getElementById(id);
@@ -44,16 +36,39 @@ const inputValidator = function () {
       // income
       if(inputIncome.value == '' || inputIncome.value < 0 || isNaN(inputIncome.value)) {
         showError('inputIncomeError',errorMessage )
-        showError('inputFoodError',errorMessage )
-        showError('inputRentError',errorMessage )
-        showError('inputClothesError',errorMessage )
-        
     }else {
         showSuccess('inputIncomeError');
+    } 
+    // food
+      if(inputFood.value == '' || inputFood.value < 0 || isNaN(inputFood.value)) {
+        showError('inputFoodError',errorMessage )
+    }else {
         showSuccess('inputFoodError');
+    }
+    // rent
+      if(inputRent.value == '' || inputRent.value < 0 || isNaN(inputRent.value)) {
+        showError('inputRentError',errorMessage )
+        
+    }else {
         showSuccess('inputRentError');
+    }
+    // clothes
+      if(inputClothes.value == '' || inputClothes.value < 0 || isNaN(inputClothes.value)) {
+        showError('inputClothesError',errorMessage )
+    }else {
         showSuccess('inputClothesError');
     }
+}
+
+// empty field function
+const emptyInputFields = function (id) {
+    const emptyInput = document.getElementById(id)
+    emptyInput.value = '';
+}
+
+const subtract = function (income,expenses) {
+    const profit = income-expenses;
+    return profit;
 }
 
 //  caculator function
@@ -70,31 +85,36 @@ calculate.addEventListener('click', function() {
         const expenses = (getInputFood + getInputRent + getInputClothes  );
         if(getInputIcome > expenses) {
             totalExpenses.innerText = expenses;
-            balance.innerText = (getInputIcome - expenses);
+            balance.innerText =  subtract(getInputIcome, expenses);
             calculateError.style.display = 'none';
-        } else if(getInputIcome > expenses){
+
+            // empty field function
+            emptyInputFields('inputFood');
+            emptyInputFields('inputRent');
+            emptyInputFields('inputClothes');
+               
+        } else if(getInputIcome < expenses){
             calculateError.style.display = 'block';
         } 
 })
-
-// empty field function
 
 
 
 // saving calculation
 save.addEventListener('click', function() {
-    console.log('hello');
     const savedMoney = parseFloat(inputSave.value);
     const despositedMoney = parseFloat(inputIncome.value);
     const balanceMoney = parseFloat(balance.innerText);
     const percentageMoney = (despositedMoney / 100)*savedMoney
-    if(percentageMoney < balanceMoney) {
+    if(balanceMoney > percentageMoney ) {
         savingAmount.innerText = percentageMoney;
-        remainingBalance.innerText = balanceMoney - percentageMoney;
-        showSuccess('savingsError')
+        remainingBalance.innerText = subtract(balanceMoney , percentageMoney);
+        showSuccess('savingsError');
+        emptyInputFields('inputIncome');
+        emptyInputFields('inputSave');
     } else {
-        showError('savingsError','Empty field or savings is too much')
-    }
+        showError('savingsError','Empty field or savings is too much than your expense');
+    } 
 
 })  
 
