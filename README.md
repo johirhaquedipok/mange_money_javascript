@@ -1,1 +1,2 @@
-# money-master-johirhaquedipok
+# managemoney-johirhaquedipok
+https://managemoney-johirhauqedipok.netlify.app/
