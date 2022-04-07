@@ -24,31 +24,35 @@ const savingsError = document.getElementById('savingsError');
 const calculate = document.getElementById('calculate');
 const save = document.getElementById('save');
 
+const errorMessage = 'Can not be negative numbers or blank field or letters';
+// error message function
+const showError = function (id, text) {
+    const inputError = document.getElementById(id);
+    inputError.innerText = text;
+    inputError.style.display = 'block';
+}
+
+// succes message function
+const showSuccess = function (id) {
+    const inputError = document.getElementById(id);
+    inputError.innerText = '';
+    inputError.style.display = 'none';
+}
+
 // input field validation function
 const inputValidator = function () {
       // income
       if(inputIncome.value == '' || inputIncome.value < 0 || isNaN(inputIncome.value)) {
-        inputIncomeError.style.display = 'block';
+        showError('inputIncomeError',errorMessage )
+        showError('inputFoodError',errorMessage )
+        showError('inputRentError',errorMessage )
+        showError('inputClothesError',errorMessage )
+        
     }else {
-        inputIncomeError.style.display = 'none';
-    }
-    // Food
-    if(inputFood.value == '' || inputFood.value < 0 || isNaN(inputFood.value)) {
-        inputFoodError.style.display = 'block';
-    }else {
-        inputFoodError.style.display = 'none';
-    }
-    // rent
-    if(inputRent.value == '' || inputRent.value < 0 || isNaN(inputRent.value)) {
-        inputRentError.style.display = 'block';
-    }else {
-        inputRentError.style.display = 'none';
-    }
-    // food
-    if(inputClothes.value == '' || inputClothes.value < 0 || isNaN(inputClothes.value)) {
-        inputClothesError.style.display = 'block';
-    }else {
-        inputClothesError.style.display = 'none';
+        showSuccess('inputIncomeError');
+        showSuccess('inputFoodError');
+        showSuccess('inputRentError');
+        showSuccess('inputClothesError');
     }
 }
 
@@ -73,6 +77,9 @@ calculate.addEventListener('click', function() {
         } 
 })
 
+// empty field function
+
+
 
 // saving calculation
 save.addEventListener('click', function() {
@@ -84,9 +91,9 @@ save.addEventListener('click', function() {
     if(percentageMoney < balanceMoney) {
         savingAmount.innerText = percentageMoney;
         remainingBalance.innerText = balanceMoney - percentageMoney;
-        savingsError.style.display= 'none';
+        showSuccess('savingsError')
     } else {
-        savingsError.style.display= 'block';
+        showError('savingsError','Empty field or savings is too much')
     }
 
 })  
