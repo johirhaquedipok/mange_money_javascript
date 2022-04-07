@@ -42,10 +42,14 @@
                   <label for="inputIncome" class="col-form-label">Income</label>
                 </div>
                 <div class="col-auto">
-                  <input type="text" id="inputIncome" class="form-control" />
+                  <input
+                    type="text"
+                    id="inputIncome"
+                    class="form-control inputs"
+                  />
                 </div>
                 <span id="inputIncomeError" class="form-text text-danger">
-                  Must be 8-20 characters long.
+                  Can not be negative numbers or blank field or letters
                 </span>
               </div>
 
@@ -59,10 +63,14 @@
                   <label for="inputFood" class="col-form-label">Food</label>
                 </div>
                 <div class="col-auto">
-                  <input type="text" id="inputFood" class="form-control" />
+                  <input
+                    type="text"
+                    id="inputFood"
+                    class="form-control inputs"
+                  />
                 </div>
                 <span id="inputFoodError" class="form-text text-danger">
-                  Must be 8-20 characters long.
+                  Can not be negative numbers or blank field or letters
                 </span>
               </div>
               <!-- for Rents -->
@@ -73,10 +81,14 @@
                   <label for="inputClothes" class="col-form-label">Rent</label>
                 </div>
                 <div class="col-auto">
-                  <input type="text" id="inputRent" class="form-control" />
+                  <input
+                    type="text"
+                    id="inputRent"
+                    class="form-control inputs"
+                  />
                 </div>
                 <span id="inputRentError" class="form-text text-danger">
-                  Must be 8-20 characters long.
+                  Can not be negative numbers or blank field or letters
                 </span>
               </div>
               <!-- for Clothes -->
@@ -89,16 +101,25 @@
                   >
                 </div>
                 <div class="col-auto">
-                  <input type="text" id="inputClothes" class="form-control" />
+                  <input
+                    type="text"
+                    id="inputClothes"
+                    class="form-control inputs"
+                  />
                 </div>
                 <span id="inputClothesError" class="form-text text-danger">
-                  Must be 8-20 characters long.
+                  Can not be negative numbers or blank field or letters
                 </span>
               </div>
               <div class="text-center">
                 <button type="button" class="btn btn-primary" id="calculate">
                   Calculate
                 </button>
+              </div>
+              <div class="col-auto text-center">
+                <span id="calculateError" class="form-text text-danger">
+                  Isufficient Income.
+                </span>
               </div>
               <!-- input field ends for expenses-->
             </div>
@@ -129,7 +150,7 @@
                 </button>
               </div>
               <span id="inputSaveError" class="form-text text-danger">
-                Must be 8-20 characters long.
+                Can not be negative numbers or blank field or letters
               </span>
             </div>
             <div class="text-center my-3">

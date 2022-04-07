@@ -16,40 +16,39 @@ const inputFoodError = document.getElementById('inputFoodError');
 const inputClothesError = document.getElementById('inputClothesError');
 const inputRentError = document.getElementById('inputRentError');
 const inputSaveError = document.getElementById('inputSaveError');
+const calculateError = document.getElementById('calculateError');
 
 
 // btns
 const calculate = document.getElementById('calculate');
 const save = document.getElementById('save');
 
-calculate.addEventListener('click', function (event) {
-    event.preventDefault();
-    
-    if(isNaN(inputIncome.value)) {
-        inputIncomeError.style.display = 'block'
-        if(isNaN(inputFood.value)) {
-            inputFoodError.style.display = 'block' 
-            if(isNaN(inputRent.value)) {
-                inputRentError.style.display = 'block' 
-                if(isNaN(inputClothes.value)) {
-                    inputClothesError.style.display = 'block' 
-                }
-            }
-        } 
-    } 
-    
-   else {
-       const getInputIcome =   parseFloat(inputIncome.value);
-       const getInputIFood =   parseFloat(inputFood.value);
-       const getInputRent =   parseFloat(inputRent.value);
-       const getInputClothes =   parseFloat(inputClothes.value);
 
-       const expenses = (getInputIFood + getInputRent + getInputClothes  );
+var input = document.querySelectorAll('.inputs');
 
-       totalExpenses.innerText = expenses;
-       balance.innerText = (getInputIcome - expenses);
-       
+calculate.addEventListener('click', function() {
+    
+    for(val of input) {
+
+        const value = val.value;
+        const getInputIcome =   parseFloat(inputIncome.value);
+        const getInputIFood =   parseFloat(inputFood.value);
+        const getInputRent =   parseFloat(inputRent.value);
+        const getInputClothes =   parseFloat(inputClothes.value);
+        const expenses = (getInputIFood + getInputRent + getInputClothes  );
+        if(value !== '' && value > 0 && !isNaN(value) && getInputIcome > expenses) {
+            totalExpenses.innerText = expenses;
+            balance.innerText = (getInputIcome - expenses);
+        } else if(getInputIcome < expenses){
+            calculateError.style.display = 'block';
+        } else {
+            inputIncomeError.style.display = 'block';
+        }
     }
+})
+
+save.addEventListener('click', function() {
+    console.log('hello');
 })
 
 /*

@@ -1,0 +1,47 @@
+
+   /*   if( inputIncome.value == '' && inputIncome.value > 0 && isNaN(inputIncome.value) ) {
+        inputIncomeError.style.display = 'block';
+    } 
+     if( inputFood.value == '' && inputFood.value > 0 && isNaN(inputFood.value) ) {
+        inputFoodError.style.display = 'block';
+        
+    }
+    if( inputRent.value == '' && inputRent.value > 0 && isNaN(inputRent.value) ) {
+        inputRentError.style.display = 'block';
+        
+    }
+     if( inputClothes.value == '' && inputClothes.value > 0 && isNaN(inputClothes.value) )  {
+         inputClothesError.style.display = 'block';
+         
+     } */
+
+
+   /*   function validate(){
+
+
+        for (let i = 0; i < input.length; i++) { 
+            const value = input[i].value;
+            if(value == '' || value < 0 || isNaN(value) && input[i].id == 'inputIncome') {
+                inputIncomeError.style.display = 'block';
+                inputIncome.focus() ;
+                return false;
+            }
+             if(value == '' || value < 0 || isNaN(value) && input[i].id == 'inputRent') {
+                inputRentError.style.display = 'block';
+                return false;
+            }
+             if(value == '' || value < 0 || isNaN(value) && input[i].id == 'inputFood') {
+                inputFoodError.style.display = 'block';
+                return false;
+            }
+             if(value == '' || value < 0 || isNaN(value) && input[i].id == 'inputClothes') {
+                inputClothesError.style.display = 'block';
+                return false;
+            }
+        }
+        return true;
+    } */
+
+
+
+    // https://dev.to/javascriptacademy/form-validation-using-javascript-34je
