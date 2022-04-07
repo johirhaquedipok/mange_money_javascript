@@ -17,6 +17,7 @@ const inputClothesError = document.getElementById('inputClothesError');
 const inputRentError = document.getElementById('inputRentError');
 const inputSaveError = document.getElementById('inputSaveError');
 const calculateError = document.getElementById('calculateError');
+const savingsError = document.getElementById('savingsError');
 
 
 // btns
@@ -49,15 +50,16 @@ calculate.addEventListener('click', function() {
 
 save.addEventListener('click', function() {
     console.log('hello');
-})
+    const savedMoney = parseFloat(inputSave.value);
+    const despositedMoney = parseFloat(inputIncome.value);
+    const balanceMoney = parseFloat(balance.innerText);
+    const percentageMoney = (despositedMoney / 100)*savedMoney
+    if(percentageMoney < balanceMoney) {
+        savingAmount.innerText = percentageMoney;
+        remainingBalance.innerText = balanceMoney - percentageMoney;
+    } else {
+        savingsError.style.display= 'block';
+    }
 
-/*
-have to handle error 
-1.any filed must contain number. if text have to show error
-2.any filed can not contain negative number. if text have to show error
+})  
 
-// bonus error
-
-1. if expense > income show error
-2.if saving amount is > balance. show error
-*/

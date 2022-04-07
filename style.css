@@ -10,9 +10,10 @@
 #inputRentError {
   display: none;
 }
-#inputSaveError {
+
+#calculateError {
   display: none;
 }
-#calculateError {
+#savingsError {
   display: none;
 }
